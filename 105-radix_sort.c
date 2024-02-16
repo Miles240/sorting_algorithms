@@ -64,21 +64,21 @@ void radix_counting_sort(int *array, size_t size, int sig, int *buff)
  */
 void radix_sort(int *array, size_t size)
 {
-	int max, sig, *buff;
+	int m, s, *b;
 
 	if (array == NULL || size < 2)
 		return;
 
-	buff = malloc(sizeof(int) * size);
-	if (buff == NULL)
+	b = malloc(sizeof(int) * size);
+	if (b == NULL)
 		return;
 
-	max = get_max(array, size);
-	for (sig = 1; max / sig > 0; sig *= 10)
+	m = get_max(array, size);
+	for (s = 1; m / s > 0; s *= 10)
 	{
-		radix_counting_sort(array, size, sig, buff);
+		radix_counting_sort(array, size, s, b);
 		print_array(array, size);
 	}
 
-	free(buff);
+	free(b);
 }

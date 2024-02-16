@@ -13,21 +13,21 @@ void cocktail_sort_list(listint_t **list);
  */
 void swap_node_ahead(listint_t **list, listint_t **tail, listint_t **shaker)
 {
-	listint_t *tmp = (*shaker)->next;
+	listint_t *t = (*shaker)->next;
 
 	if ((*shaker)->prev != NULL)
-		(*shaker)->prev->next = tmp;
+		(*shaker)->prev->next = t;
 	else
-		*list = tmp;
-	tmp->prev = (*shaker)->prev;
-	(*shaker)->next = tmp->next;
-	if (tmp->next != NULL)
-		tmp->next->prev = *shaker;
+		*list = t;
+	t->prev = (*shaker)->prev;
+	(*shaker)->next = t->next;
+	if (t->next != NULL)
+		t->next->prev = *shaker;
 	else
 		*tail = *shaker;
-	(*shaker)->prev = tmp;
-	tmp->next = *shaker;
-	*shaker = tmp;
+	(*shaker)->prev = t;
+	t->next = *shaker;
+	*shaker = t;
 }
 
 /**

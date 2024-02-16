@@ -67,16 +67,16 @@ void merge_sort_recursive(int *subarr, int *buff, size_t front, size_t back)
  */
 void merge_sort(int *array, size_t size)
 {
-	int *buff;
+	int *b;
 
 	if (array == NULL || size < 2)
 		return;
 
-	buff = malloc(sizeof(int) * size);
-	if (buff == NULL)
+	b = malloc(sizeof(int) * size);
+	if (b == NULL)
 		return;
 
-	merge_sort_recursive(array, buff, 0, size);
+	merge_sort_recursive(array, b, 0, size);
 
-	free(buff);
+	free(b);
 }
